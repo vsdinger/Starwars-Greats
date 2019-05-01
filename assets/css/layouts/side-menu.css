@@ -1,6 +1,11 @@
-body {
-    color: #777;
-}
+/* body {
+		background: url("../css/images/masterchef-pantry.jpg") 
+		no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+		-o-background-size: cover;
+} */
 
 .pure-img-responsive {
     max-width: 100%;
