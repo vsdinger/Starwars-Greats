@@ -14,8 +14,8 @@
 var database = firebase.database();
 
 // grab search fields
-$("#future-button").on("click", function(event) {
-  event.preventDefautl();
+$("#add-recipe").on("click", function(event) {
+  event.preventDefault();
 
   var recipe = $("#recipe-input").val().trim();
   console.log(recipe);
@@ -28,12 +28,13 @@ $("#future-button").on("click", function(event) {
 })
 
 firebase.database().ref().on("child_added", function(snapshot){
-    $("#future-div").append("<p>" + snapshot.val().sRecipe+"</p>");
+    $("#recipe-return").append("<p>" + snapshot.val().sRecipe+"</p>");
 })
 
+function getRecipe(keyword) {
 // Linking Recipes API
 var type = $(this).attr("data-type");
-var queryURL = "https://api.edamam.com/search?q=shrimp&app_id=e01c42d8&app_key=19a34826099c7e0c9666127afe12981b";
+var queryURL = "https://api.edamam.com/search?q=" + keyword + "&app_id=e01c42d8&app_key=19a34826099c7e0c9666127afe12981b";
 console.log(queryURL);
 
 // Grabbing our API results
@@ -42,8 +43,9 @@ $.ajax({
     method: "GET",
   })
     .then (function(response) {
-      $(".content-recipe").html("Recipe: " + response.hits[0].recipe.label);
-      $(".content-recipe").html(response.hits[0].recipe.image);
-      $(".content-recipe").html(response.hits[0].recipe.ingredientLines);
+      $("#recipe-title").text("Recipe: " + response.hits[0].recipe.label);
+      $("#recipe-image").attr("src", response.hits[0].recipe.image);
+      $("#recipe-return").text(response.hits[0].recipe.ingredientLines);
       console.log(response);
     })
+}
