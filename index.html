@@ -63,9 +63,27 @@
                         <img class="pure-img-responsive" resize src="assets/css/images/Bulots.jpg" alt="French Cuisine">
                     </div>
                 </div>
-    
-                <div class="content-recipe"><h2>recipe results</h2>
+                <div class="card-body">
+                    <form role= "form">
+                        <div class="form-group row">
+                            <label for="recipe-input">Search</label>
+                            <input class="form-control" id="recipe-input" type="text">
+                            <button type="button" class="btn btn-dark" id="add-recipe">Yum :P</button>
+                        </div>        
+                    </form>
+                </div>
 
+                <div class="col-mg-12">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            Your Results
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" id="recipe-results">
+                    <h2 id="recipe-title"></h2>
+                    <p id="recipe-return"></p>
+                    <img id="recipe-image">
                 </div>
             </div>
         </div>
