@@ -42,8 +42,8 @@ $.ajax({
     method: "GET",
   })
     .then (function(response) {
-      $(".card-text").html("Recipe: " + response.hits[0].recipe.label);
-      $(".card-text").html(response.hits[0].recipe.image);
-      $(".card-text").html(response.hits[0].recipe.ingredientLines);
+      $(".content-recipe").html("Recipe: " + response.hits[0].recipe.label);
+      $(".content-recipe").html(response.hits[0].recipe.image);
+      $(".content-recipe").html(response.hits[0].recipe.ingredientLines);
       console.log(response);
     })
