@@ -25,6 +25,7 @@ $("#add-recipe").on("click", function(event) {
       sRecipe: recipe,
   };
   database.ref().push(rFirebase);
+  getRecipe($("#recipe-input").val().trim())
 })
 
 firebase.database().ref().on("child_added", function(snapshot){
@@ -49,3 +50,4 @@ $.ajax({
       console.log(response);
     })
 }
+
