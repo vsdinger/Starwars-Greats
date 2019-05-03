@@ -13,33 +13,37 @@
 //shortcut for our firebase - firebase.database() will grab anything in our firebase
 var database = firebase.database();
 
-// Linking Recipes API
-var type = $(this).attr("data-type");
-var queryURL = "https://api.edamam.com/search?q=shrimp&r=coconut&app_id=e01c42d8&app_key=19a34826099c7e0c9666127afe12981b"
-console.log(queryURL);
-// still need to get the "r" search term to work
-
-$.ajax({
-    url: queryURL,
-    method: "GET",
-  });
-
 // grab search fields
 $("#future-button").on("click", function(event) {
   event.preventDefautl();
 
   var recipe = $("#recipe-input").val().trim();
-  var restaurant = $("#restaurant-recipe").val().trim();
   console.log(recipe);
-  console.log(restaurant);
-  
+
   //send our data to firebase
-  var searchFirebase = {
+  var rFirebase = {
       sRecipe: recipe,
-      sRestaurant:restaurant,
   };
+  database.ref().push(rFirebase);
 })
 
 firebase.database().ref().on("child_added", function(snapshot){
-    $()
+    $("#future-div").append("<p>" + snapshot.val().sRecipe+"</p>");
 })
+
+// Linking Recipes API
+var type = $(this).attr("data-type");
+var queryURL = "https://api.edamam.com/search?q=shrimp&app_id=e01c42d8&app_key=19a34826099c7e0c9666127afe12981b";
+console.log(queryURL);
+
+// Grabbing our API results
+$.ajax({
+    url: queryURL,
+    method: "GET",
+  })
+    .then (function(response) {
+      $(".card-text").html("Recipe: " + response.hits[0].recipe.label);
+      $(".card-text").html(response.hits[0].recipe.image);
+      $(".card-text").html(response.hits[0].recipe.ingredientLines);
+      console.log(response);
+    })
