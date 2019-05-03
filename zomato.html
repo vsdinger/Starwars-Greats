@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form class="pure-form">
+        <fieldset>
+            <legend>Needed Items for Resturant Search</legend>
+            <!-- url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + locationId + "&entity_type=city&q=" + searchKeyword + "&cuisines=" + cuisines, -->
+            <input type="text" placeholder="locationId" id="locationId">
+            <br>
+            <input type="text" placeholder="searchKeyword" id="searchKeyword">
+            <br>
+            <input type="text" placeholder="cuisines" id="cuisines">
+            <br>
+    
+            <button type="submit" class="pure-button pure-button-primary" id="zomatoSearch">Submit</button>
+        </fieldset>
+    </form>
+    <div id="test"></div>
+    <script src="assets\js\zomato.js"></script>
+</body>
+</html>
