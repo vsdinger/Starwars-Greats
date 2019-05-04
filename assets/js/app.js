@@ -29,7 +29,7 @@ $("#add-recipe").on("click", function(event) {
 })
 
 firebase.database().ref().on("child_added", function(snapshot){
-    $("#recipe-return").append("<p>" + snapshot.val().sRecipe+"</p>");
+    $("#firebase-return").append("<p>" + snapshot.val().sRecipe+"</p>");
 })
 
 function getRecipe(keyword) {
@@ -44,10 +44,9 @@ $.ajax({
     method: "GET",
   })
     .then (function(response) {
-      $("#recipe-title").text("Recipe: " + response.hits[0].recipe.label);
+      $("#recipe-title").text(response.hits[0].recipe.label);
       $("#recipe-image").attr("src", response.hits[0].recipe.image);
       $("#recipe-return").text(response.hits[0].recipe.ingredientLines);
       console.log(response);
     })
 }
-
