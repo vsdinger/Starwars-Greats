@@ -1,0 +1,15 @@
+.card-body {
+    background: url("../css/images/masterchef-pantry.jpg") 
+    no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    }   
+
+h1 {
+font-weight: bold;
+font-size: 69px;
+margin-bottom: 15px;
+text-align: center;
+}

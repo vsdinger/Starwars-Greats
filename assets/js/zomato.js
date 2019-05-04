@@ -4,6 +4,7 @@ var getresturant = function(locationId, searchKeyword, cuisines){
         url: "https://developers.zomato.com/api/v2.1/search?entity_id=" + locationId + "&entity_type=city&q=" + searchKeyword + "&cuisines=" + cuisines,
         beforeSend: function(request) {
             request.setRequestHeader("user-key", "42c88d2c39a9d4fe06ffed3c463e3cd5");
+            console.log(url);
           },
     })
     .then(function(data) {
